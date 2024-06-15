@@ -1,7 +1,11 @@
+import { useAuth } from "@/context/auth";
 import { BarChart3, LogOut, NotebookText, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
+
+  const { logout } = useAuth();
+
   return (
     <>
       <aside className="flex justify-between h-full w-full items-center flex-col py-10">
@@ -26,7 +30,9 @@ export default function Sidebar() {
           </div>
         </div>
         <div className="flex gap-3 justify-center items-center">
-          <LogOut size={18} strokeWidth={2} /> Logout
+          <button onClick={logout} className="flex gap-2 items-center" >
+            <LogOut size={18} strokeWidth={2} /> Logout
+          </button>
         </div>
       </aside>
     </>

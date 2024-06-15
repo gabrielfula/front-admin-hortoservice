@@ -1,17 +1,30 @@
 import Private from "@/components/Layout/PrivateLayout/Private"
 import Public from "@/components/Layout/PublicLayout/Public"
+import Signin from "@/components/Login/Signin"
+import { useAuth } from "@/context/auth"
 import Clients from "@/pages/Clients/Clients"
 import Dashboard from "@/pages/Dashboard/Dashboard"
-import Login from "@/pages/Login/Login"
 import Orders from "@/pages/Orders/Orders"
-import { Route, Routes } from "react-router-dom"
+import { useEffect } from "react"
+import { Route, Routes, useNavigate } from "react-router-dom"
 
 export default function AppRoutes() {
+
+  const { user, token } = useAuth();
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!token && !user) {
+      navigate("/");
+    }
+  }, [token, navigate]);
+
   return (
     <>
       <Routes>
           <Route element={<Public />} >
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Signin />} />
           </Route>
           <Route element={<Private />} >
             <Route path="/dashboard" element={<Dashboard />} />

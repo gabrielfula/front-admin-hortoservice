@@ -1,6 +1,7 @@
 import Header from '../Header'
 import Sidebar from '../Sidebar'
 import { Outlet } from 'react-router-dom'
+import { Toaster } from '@/components/ui/toaster'
 
 export default function Private() {
   return (
@@ -18,6 +19,7 @@ export default function Private() {
               </div>
               <div className='mt-5 mx-10'>
                 <Outlet />
+                <Toaster />
               </div>
             </div>
           </div>

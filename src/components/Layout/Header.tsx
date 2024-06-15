@@ -5,7 +5,7 @@ export default function Header() {
     <>
       <div className="p-5">
         {/* <AvatarImage src=""/> */}
-        <p className="font-bold text-lg">Bem vindo, Ándre</p>
+        <p className="font-bold text-lg">Bem vindo, André</p>
       </div>
     </>
   )
